@@ -136,6 +136,7 @@ public class Person {
 
 	@Override
 	public boolean equals(Object obj) {
+		
 		if (this == obj)
 			return true;
 		if (obj == null)
@@ -149,4 +150,6 @@ public class Person {
 						&&this.ssn.equalsIgnoreCase(other.getSSN());
 
 	}
+	
+	
 }
