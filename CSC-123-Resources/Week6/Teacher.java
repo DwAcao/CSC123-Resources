@@ -6,7 +6,7 @@ public class Teacher extends Person {
 	String department;
 	ArrayList<String> coursesTaught=new ArrayList<String>();
 	
-	public Teacher(String fName, String lName, String ssn,String department) {
+	public Teacher(String fName, String lName, String ssn,String department) throws IncompletePersonException {
 		super(fName, lName, ssn);
 		this.department=department;
 	}

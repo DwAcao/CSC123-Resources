@@ -32,7 +32,9 @@ public class Person {
 	*/
 	
 
-	public Person(String fName, String lName, String ssn) {
+	public Person(String fName, String lName, String ssn) throws IncompletePersonException{
+		
+		if(fName==null||lName==null||ssn==null)throw new IncompletePersonException("Some of the person's attributes are missing");
 		setFirstName(fName);
 		setLastName(lName);
 		setSSN(ssn);

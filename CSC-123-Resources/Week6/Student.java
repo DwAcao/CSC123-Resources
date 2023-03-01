@@ -7,7 +7,7 @@ public class Student extends Person {
 	String major;
     ArrayList<String> coursesRegistered;
 	
-	public Student(String fName, String lName, String ssn,String program, String major) {
+	public Student(String fName, String lName, String ssn,String program, String major) throws IncompletePersonException{
 		super(fName, lName, ssn);
 		this.program=program;
 		this.major=major;
