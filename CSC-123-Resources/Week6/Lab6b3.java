@@ -11,7 +11,7 @@ public class Lab6b3 {
 		// Create file object
 		File f = new File(filePath);
 
-		if (!f.exists()) {
+		if (!f.exists()||!f.isFile()) {
 			System.out.println("Find not found!");
 			System.exit(0);
 		}
