@@ -7,5 +7,6 @@
 	</classpathentry>
 	<classpathentry kind="src" path="Week6"/>
 	<classpathentry kind="src" path="Bank"/>
+	<classpathentry kind="src" path="Week7"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
