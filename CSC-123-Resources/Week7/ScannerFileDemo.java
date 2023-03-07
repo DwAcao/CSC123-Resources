@@ -6,28 +6,14 @@ public class ScannerFileDemo {
 
 	public static void main(String[] args) throws IOException {
 
-		String input="If I buy 2 cans of soda for 4 dollars, what is the price for one soda can? ";
+		File sourceFile = new File("/Users/usman/tmp/test.txt");
 
 			// File reader
-			Scanner reader = new Scanner(input);
+			Scanner reader = new Scanner(sourceFile);
 
-			//Print all tokens at once
 			while (reader.hasNext()) {
-				String token=reader.next();
-				System.out.println(token);
-			}
-			
-			System.out.println("-------------\n");
-			
-			reader=new Scanner(input);
-			//print only numbers
-			while (reader.hasNext()) {
-				if(reader.hasNextInt()) {
-					System.out.println(reader.nextInt());
-				}
-				else {
-					reader.next();
-				}
+				String line=reader.nextLine();
+				System.out.println(line);
 				
 			}
 
