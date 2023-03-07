@@ -5,7 +5,7 @@ import java.io.OutputStream;
 import java.util.Scanner;
 
 /**
- * This is a utility class to render menu options and to accept user input.
+ * This is a utility class to render menu options and to accept user input. This class will 
  * 
  * @author Usman Aslam
  *
