@@ -69,7 +69,12 @@ public class UIManager {
 		return choice;
 	}
 
-	public  String readString(String msg)throws IOException {
+	public  String readLine(String msg)throws IOException {
+		print(msg, null);
+		return this.scanner.nextLine();
+	}
+
+	public  String readToken(String msg)throws IOException {
 		print(msg, null);
 		return this.scanner.next();
 	}
@@ -78,7 +83,7 @@ public class UIManager {
 
 		while (true) {
 			try {
-				return Double.parseDouble(readString(msg));
+				return Double.parseDouble(readToken(msg));
 			} catch (Exception e) {
 				print(doubleErrorMessage,new Object[] {});
 			}
@@ -89,7 +94,7 @@ public class UIManager {
 	public  int readInt(String msg)throws IOException {
 		while (true) {
 			try {
-				return Integer.parseInt(readString(msg));
+				return Integer.parseInt(readToken(msg));
 			} catch (Exception e) {
 				print(intErrorMessage,new Object[] {});
 			}
@@ -104,9 +109,4 @@ public class UIManager {
 		this.out.flush();
 
 	}
-
-
-
-	
-
 }

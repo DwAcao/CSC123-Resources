@@ -12,9 +12,9 @@ public class UITest {
 		
 			UIManager ui=new UIManager(System.in, System.out, menuOptions, INPUT_PROMPT);
 			int option=ui.getMainOption();
-			double d=ui.readDouble("Enter amount of money you need: ");
-			int i=ui.readInt("Enter your age: ");
-		
+			
+			int x=ui.readInt("Please enter your account number");
+			
 
 	}
 
