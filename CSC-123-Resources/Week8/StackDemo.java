@@ -5,15 +5,14 @@ public class StackDemo {
 	public static void main(String[] args) {
 		
 		
-//		Stack<String> stack1=new Stack<String>();
-//		
-//		stack1.push("Line 1");
-//		stack1.push("Value 2");
-//		
-//		System.out.println("\n\n-------Example 1");
-//		
-//		System.out.println(stack1.pop());
-//		System.out.println(stack1.pop());
+	Stack<String> stack1=new Stack<String>();
+		stack1.push("Line 1");
+		stack1.push("Value 2");
+		
+		System.out.println("\n\n-------Example 1");
+		
+		System.out.println(stack1.pop());
+		System.out.println(stack1.pop());
 		
 		
 		System.out.println("\n\n-------Example 2");
