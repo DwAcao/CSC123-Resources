@@ -4,18 +4,19 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
-public class ObjectSerializationDemo {
+public class ObjectSerializationCustomDemo {
 
 	public static void main(String[] args) throws IOException{
 
-		ArrayList<Integer> myQueue = new ArrayList<Integer>();
-		myQueue.add(1);
-		myQueue.add(2);
-		myQueue.add(3);
-		myQueue.add(4);
-		myQueue.add(5);
+		ArrayList<Customer> myQueue = new ArrayList<Customer>();
 		
-		File outFile=new File("/Users/usman/tmp/os/object_store.dat");
+		myQueue.add(new Customer("Name1","LName1","SSN1"));
+		myQueue.add(new Customer("Name2","LName2","SSN2"));
+		myQueue.add(new Customer("Name3","LName3","SSN3"));
+		myQueue.add(new Customer("Name4","LName4","SSN4"));
+
+		
+		File outFile=new File("/Users/usman/tmp/os/object_store2.dat");
 		
 		if(outFile.exists()) {
 			System.out.println("File already exists!");
@@ -25,7 +26,6 @@ public class ObjectSerializationDemo {
 		outFile.createNewFile();
 		
 		FileOutputStream fout=new FileOutputStream(outFile);
-		
 		ObjectOutputStream oout=new ObjectOutputStream(fout);
 		
 		oout.writeObject(myQueue);
