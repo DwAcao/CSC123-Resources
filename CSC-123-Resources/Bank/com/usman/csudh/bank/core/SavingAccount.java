@@ -6,19 +6,15 @@ public class SavingAccount extends Account{
 		super("Saving", customer);
 	}
 
-	//Deposit not possible if account is not open
-	public boolean deposit(double amount) {
-		if (!isOpen())
-			return false;
-		return super.deposit(amount);
 
-	}
 
 	//Withdrawals only allowed against positive balances 
-	public boolean withdraw(double amount) {
-		if (getBalance() - amount < 0)
-			return false;
-		return super.withdraw(amount);
+	public void withdraw(double amount) throws InsufficientBalanceException {
+		if (getBalance() - amount < 0) {
+			throw new InsufficientBalanceException("Not enough funds to cover withdrawal");
+
+		}
+		super.withdraw(amount);
 
 	}
 

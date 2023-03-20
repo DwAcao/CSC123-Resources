@@ -42,15 +42,23 @@ public class Account implements Serializable {
 		return workingBalance;
 	}
 	
-	public boolean deposit(double amount) {
-			transactions.add(new Transaction(Transaction.CREDIT,amount));
-			return true;
-		
+	public void deposit(double amount)  throws AccountClosedException{
+		double balance=getBalance();
+		if(!isOpen()&&balance>=0) {
+			throw new AccountClosedException("\nAccount is closed with positive balance, deposit not allowed!\n\n");
+		}
+		transactions.add(new Transaction(Transaction.CREDIT,amount));
 	}
 	
-	public boolean withdraw(double amount) {
-			transactions.add(new Transaction(Transaction.DEBIT,amount));
-			return true;
+	public void withdraw(double amount) throws InsufficientBalanceException {
+			
+		double balance=getBalance();
+			
+		if(!isOpen()&&balance<=0) {
+			throw new InsufficientBalanceException("\nThe account is closed and balance is: "+balance+"\n\n");
+		}
+		
+		transactions.add(new Transaction(Transaction.DEBIT,amount));
 	}
 	
 	public void close() {

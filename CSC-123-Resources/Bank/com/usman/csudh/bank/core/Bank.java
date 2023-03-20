@@ -27,11 +27,33 @@ public class Bank {
 
 	
 	
-	public static Account lookup(int accountNumber) {
+	public static Account lookup(int accountNumber) throws NoSuchAccountException{
+		if(!accounts.containsKey(accountNumber)) {
+			throw new NoSuchAccountException("\nAccount number: "+accountNumber+" nout found!\n\n");
+		}
+		
 		return accounts.get(accountNumber);
+	}
+	
+	public static void makeDeposit(int accountNumber, double amount) throws AccountClosedException, NoSuchAccountException{
+		
+		lookup(accountNumber).deposit(amount);
+		
+	}
+	
+	public static void makeWithdrawal(int accountNumber, double amount) throws InsufficientBalanceException, NoSuchAccountException {
+		lookup(accountNumber).withdraw(amount);
+	}
+	
+	public static void closeAccount(int accountNumber) throws NoSuchAccountException {
+		lookup(accountNumber).close();
 	}
 
 	
+	public static double getBalance(int accountNumber) throws NoSuchAccountException {
+		return lookup(accountNumber).getBalance();
+	}
+
 	public static void listAccounts(OutputStream out) throws IOException{
 		
 		out.write((byte)10);
@@ -44,6 +66,11 @@ public class Bank {
 		
 		out.write((byte)10);
 		out.flush();
+	}
+	
+	public static void printAccountTransactions(int accountNumber, OutputStream out) throws IOException,NoSuchAccountException{
+		
+		lookup(accountNumber).printTransactions(out);
 	}
 				
 	
