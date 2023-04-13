@@ -10,8 +10,9 @@ public class APIClientDemo {
 		
 		//Step 1
 		HttpRequest.Builder builder=HttpRequest.newBuilder();
-		builder.uri(URI.create("http://www.usman.cloud/banking/exchange-rate.csv"));
-		
+		//builder.uri(URI.create("http://www.usman.cloud/banking/exchange-rate.csv"));
+		builder.uri(URI.create("https://m1mz7cqyeh.execute-api.us-west-1.amazonaws.com/default/weatherFunction?location=paris"));
+
 		builder.method("GET", HttpRequest.BodyPublishers.noBody());
 		
 		//Step 2
