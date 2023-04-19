@@ -8,7 +8,9 @@ public class Excercise1 {
 	
 	public static void main (String args[]) {
 		
-		ArrayList students=new ArrayList<Map>();
+		
+		//List of Students 
+		Map<String,Map> students=new TreeMap<String,Map>();
 		
 		//Student Joe
 		Map joe=new TreeMap<String, Object>();
@@ -23,7 +25,7 @@ public class Excercise1 {
 		
 		joe.put("Hobbies", joesHobbies);
 		
-		students.add(joe);
+		students.put("10",joe);
 		
 		
 		
@@ -39,7 +41,7 @@ public class Excercise1 {
 		jane.put("Email", "jane@email.com");
 		jane.put("Hobbies",janesHobbies);
 		
-		students.add(jane);
+		students.put("11",jane);
 		
 		System.out.println(students);
 		
