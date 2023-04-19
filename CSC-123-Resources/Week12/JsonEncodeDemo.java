@@ -24,6 +24,6 @@ class JsonEncodeDemo {
       obj.put("Name", "Joe Blogs");
       obj.put("Email", "joe@email.com");
  
-      System.out.print(obj);
+      System.out.print(obj);  
    }
 }
