@@ -1,16 +1,15 @@
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
-import java.net.http.HttpRequest.Builder;
 import java.net.http.HttpResponse;
 import java.net.URI;
 
-public class APIClientDemo {
+public class GenericAPIClient {
 
-	public static void main(String[] args) throws Exception {
+	public static String callAPI(String url) throws Exception {
 		
 		//Step 1
 		HttpRequest.Builder builder=HttpRequest.newBuilder();
-		builder.uri(URI.create("https://www.google.com"));
+		builder.uri(URI.create(url));
 
 		builder.method("GET", HttpRequest.BodyPublishers.noBody());
 		
@@ -29,8 +28,7 @@ public class APIClientDemo {
 				client.send(req, HttpResponse.BodyHandlers.ofString());
 		
 		//Step 5
-		System.out.println(response.headers().toString());
-		System.out.println(response.body());
+		return response.body();
 
 	
 	}

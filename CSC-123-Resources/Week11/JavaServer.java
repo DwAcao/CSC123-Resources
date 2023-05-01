@@ -10,7 +10,7 @@ public class JavaServer {
 
 	public static void main(String[] args) throws IOException{
 			
-		ServerSocket server=new ServerSocket(1000);
+		ServerSocket server=new ServerSocket(99);
 	
 		System.out.println("Listening!!!");
 		Socket client=server.accept();
