@@ -1,5 +1,6 @@
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.IOError;
 import java.io.IOException;
 import java.io.InputStream;
@@ -32,7 +33,7 @@ public class ConsoleDemo {
 			
 			while(true) {
 				
-				writer.write(workingDir+prompt);
+				writer.write("\n\r"+workingDir+prompt);
 				writer.flush();
 				String clientCommand=reader.readLine();
 				
@@ -40,9 +41,38 @@ public class ConsoleDemo {
 					writer.write("\nWorking directory is: "+workingDir+"\n\n");
 				}
 				else if(clientCommand.equalsIgnoreCase("dir")){
-					writer.write("\nShould list files in the current directory \n\n");
+					
+					File currentDirectory=new File(workingDir);
+					File[] allFiles=currentDirectory.listFiles();
+					
+					for(File f:allFiles) {
+						writer.write("\n\r"+f.getName()+(f.isDirectory()?" - Directory":" - File"));
+					}
+					
 				}
-				
+				else if(clientCommand.startsWith("cd")) {
+					String directory=clientCommand.split(" ")[1];
+					File tempWorkingDir;
+					
+					
+					if(directory.equalsIgnoreCase("..")) {
+						tempWorkingDir=new File(workingDir).getParentFile();
+					}
+					else{
+						tempWorkingDir=new File(workingDir+File.separator+directory);
+					}
+					
+					
+					
+					if(tempWorkingDir.isDirectory()) {
+						workingDir=tempWorkingDir.getAbsolutePath();
+					}
+					else {
+						writer.write("\n\r Directory does not exist!\n\r");
+					}	
+					
+
+				}
 				
 			}
 			

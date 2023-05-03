@@ -7,6 +7,8 @@
 	<classpathentry kind="src" path="Week11"/>
 	<classpathentry kind="src" path="Week12"/>
 	<classpathentry kind="src" path="Week13"/>
+	<classpathentry kind="src" path="Week14"/>
+	<classpathentry kind="src" path="Week14b"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17">
 		<attributes>
 			<attribute name="module" value="true"/>
