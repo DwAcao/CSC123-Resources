@@ -5,6 +5,17 @@ import java.util.ArrayList;
 
 public abstract class CurrencyReader {
 
+	public static CurrencyReader getInstance(String type) throws Exception{
+		if(type.equalsIgnoreCase("file")) {
+			return new FileHook();
+		}
+		else if(type.equalsIgnoreCase("http")) {
+			return new HTTPHook();
+		}
+		else {
+			throw new Exception("Type "+type+ " not understood!");
+		}
+	}
 		
 	public ArrayList<String> readCurrencies() throws Exception{
 		//get an input steam
